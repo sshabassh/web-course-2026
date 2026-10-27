@@ -1,0 +1,26 @@
+{
+  "transactions": [
+    {
+      "id": "1",
+      "amount": 5000,
+      "type": "income",
+      "categoryId": "2",
+      "date": "2026-10-01",
+      "comment": "Зарплата"
+    },
+    {
+      "id": "2",
+      "amount": 1200,
+      "type": "expense",
+      "categoryId": "1",
+      "date": "2026-10-02",
+      "comment": "Продукты"
+    }
+  ],
+  "categories": [
+    { "id": "1", "name": "Еда", "type": "expense" },
+    { "id": "2", "name": "Зарплата", "type": "income" },
+    { "id": "3", "name": "Развлечения", "type": "expense" },
+    { "id": "4", "name": "Фриланс", "type": "income" }
+  ]
+}

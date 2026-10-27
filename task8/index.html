@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zen-Money | Учет финансов</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <h1>Zen-Money</h1>
+        <div class="summary" id="summary">
+            <div class="summary-item income">Доходы: <span id="sum-income">0</span> ₽</div>
+            <div class="summary-item expense">Расходы: <span id="sum-expense">0</span> ₽</div>
+            <div class="summary-item balance">Баланс: <span id="sum-balance">0</span> ₽</div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Левая колонка: Формы и Фильтры -->
+        <aside class="sidebar">
+            <!-- Форма добавления/редактирования -->
+            <section class="card">
+                <h2 id="form-title">Новая операция</h2>
+                <form id="transaction-form">
+                    <input type="hidden" id="edit-id">
+                    
+                    <div class="form-group">
+                        <label>Сумма</label>
+                        <input type="number" id="amount" step="0.01" min="0.01" required>
+                        <span class="error-msg" id="error-amount"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Тип</label>
+                        <select id="type">
+                            <option value="expense">Расход</option>
+                            <option value="income">Доход</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Категория</label>
+                        <select id="category" required>
+                            <!-- Заполняется через JS -->
+                        </select>
+                        <span class="error-msg" id="error-category"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Дата</label>
+                        <input type="date" id="date" required>
+                        <span class="error-msg" id="error-date"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Комментарий</label>
+                        <input type="text" id="comment" placeholder="Необязательно">
+                    </div>
+
+                    <button type="submit" class="btn primary" id="submit-btn">Добавить</button>
+                    <button type="button" class="btn secondary hidden" id="cancel-edit-btn">Отмена</button>
+                </form>
+            </section>
+
+            <!-- Форма новой категории -->
+            <section class="card">
+                <h2>Новая категория</h2>
+                <form id="category-form">
+                    <div class="form-group">
+                        <input type="text" id="new-category-name" placeholder="Название" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="new-category-type">
+                            <option value="expense">Расход</option>
+                            <option value="income">Доход</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn outline">Создать</button>
+                </form>
+            </section>
+
+            <!-- Фильтры -->
+            <section class="card">
+                <h2>Фильтры</h2>
+                <div class="form-group">
+                    <label>Категория</label>
+                    <select id="filter-category">
+                        <option value="all">Все</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Тип</label>
+                    <select id="filter-type">
+                        <option value="all">Все</option>
+                        <option value="income">Только доходы</option>
+                        <option value="expense">Только расходы</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Дата с</label>
+                    <input type="date" id="filter-date-from">
+                </div>
+                <div class="form-group">
+                    <label>Дата по</label>
+                    <input type="date" id="filter-date-to">
+                </div>
+            </section>
+        </aside>
+
+        <!-- Правая колонка: Список операций -->
+        <section class="content">
+            <div id="loader" class="hidden">Загрузка...</div>
+            <div id="error-container" class="hidden error-alert"></div>
+            <ul class="transaction-list" id="transaction-list">
+                <!-- Сюда рендерятся операции -->
+            </ul>
+        </section>
+    </main>
+
+    <!-- Подключение главного модуля -->
+    <script type="module" src="main.js"></script>
+</body>
+</html>
