@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.game-container {
+    background-color: #34495e;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.status-panel {
+    margin-bottom: 20px;
+    min-height: 60px;
+}
+
+.level {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #f1c40f;
+    margin-bottom: 5px;
+}
+
+.status-text {
+    font-size: 1rem;
+    color: #bdc3c7;
+}
+
+/* Сетка 2x2 (CSS Grid) */
+.game-board {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+/* Кнопки-сектора */
+.simon-btn {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Делает кнопки идеально квадратными */
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: filter 0.1s, transform 0.1s, box-shadow 0.1s;
+    /* Убираем стандартную обводку при клике на мобильных */
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Цвета */
+.btn-0 { background-color: #e74c3c; } /* Красный */
+.btn-1 { background-color: #2ecc71; } /* Зеленый */
+.btn-2 { background-color: #3498db; } /* Синий */
+.btn-3 { background-color: #f1c40f; } /* Желтый */
+
+/* Эффект нажатия (ручной или компьютерный) */
+.simon-btn.active {
+    filter: brightness(1.8);
+    transform: scale(0.95);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+/* Кнопка Старт */
+.start-btn {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    background-color: #e67e22;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    min-height: 44px; /* Touch-friendly */
+}
+
+.start-btn:hover {
+    background-color: #d35400;
+}
+
+.start-btn:disabled {
+    background-color: #7f8c8d;
+    cursor: not-allowed;
+}
