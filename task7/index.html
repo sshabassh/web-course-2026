@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бесконечный скролл и Поиск</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header class="header">
+        <h1>Персонажи</h1>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Поиск по имени..." autocomplete="off">
+        </div>
+    </header>
+
+    <main>
+        <!-- Контейнер для карточек -->
+        <div id="cards-container" class="cards-grid"></div>
+        
+        <!-- Индикатор загрузки -->
+        <div id="loader" class="loader hidden">
+            <div class="spinner"></div>
+        </div>
+
+        <!-- Сообщение об ошибке или пустом результате -->
+        <div id="message" class="message hidden"></div>
+
+        <!-- Невидимый элемент-маркер для отслеживания конца списка (для IntersectionObserver) -->
+        <div id="sentinel"></div>
+    </main>
+
+</body>
+</html>
